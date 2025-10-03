@@ -37,5 +37,13 @@ module App
       end
     end
 
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'https://rails-react-front.onrender.com'
+        resource '*',
+        :headers => :any,
+        :methods => [:get, :post, :patch, :delete, :options]
+      end
+    end
   end
 end
